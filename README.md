@@ -8,8 +8,9 @@ files with no extensions to /noextension
 .sh files are left in place
 
 ## Usage
-    bash
+```bash
 bash organise.sh /path/to/target-directory
+```
 
 ## Notes
 Built as part of my Linux learnin journey - documented on https://youtube.com/@loxsechq?si=Qhgl44j0aIk4zmVk
