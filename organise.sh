@@ -30,25 +30,39 @@ move_file() {
 	fi
 }
 
-for file in "$dir"/*; do		# loops through the entire directory
 
-	[[ "$file" == *.sh ]] && continue		# skips .sh files
+for file in "$dir"/*; do
+	[[ "$file" == organise.sh ]] && continue
 
-	if [[ "$file" == *.txt ]]		# checks if file extension is .txt and moves it
-       	then
-		move_file "$file" "$dir/text/"
-		
-	elif [[ "$file" == *.jpg ]]		# checks if file extension is .jpg amd moves it
-       	then
-		move_file "$file" "$dir/image/"
+	if [[ "$file" == *.zip ]]; then
+		move_file "$file" "$dir/zip-files"
 
-	elif [[ -f "$file" && "$file" != *.* ]] 		# checks if file have no extension an moves it
-	then
-		move_file "$file" "$dir/noextension"
+	elif [[ "$file" == *.txt ]]; then
+		move_file "$file" "$dir/text-files"
+
+	elif [[ "$file" == *.mp3 ]]; then
+		move_file "$file" "$dir/audios"
+
+	elif [[ "$file" == *.csv ]]; then
+		move_file "$file" "$dir/CSVs"
+
+	elif [[ "$file" == *.pdf ]]; then
+		move_file "$file" "$dir/PDFs"
+
+	elif [[ "$file" == *.sh ]]; then
+		move_file "$file" "$dir/scripts"
+
+	elif [[ "$file" == *.jpg ]]; then
+		move_file "$file" "$dir/images"
+
+	elif [[ "$file" == *.png ]]; then
+		move_file "$file" "$dir/images"
+
+	elif [[ -f "$file" && "$file" != *.* ]]; then
+		move_file "$file" "$dir/noext"
+
 	fi
 done
 
-echo " All Done"
-
-
+echo "All Done!!!"
 
